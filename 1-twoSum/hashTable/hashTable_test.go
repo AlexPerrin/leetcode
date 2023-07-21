@@ -1,7 +1,3 @@
-//LeetCode 1. Two Sum
-//Naive Approuch using nested loops
-//O(n^2) time complexity
-
 package twoSum_hashTable
 
 import (
