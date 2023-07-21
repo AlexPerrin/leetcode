@@ -21,7 +21,7 @@
 //we can use multiple assignment with map[key] to store the value and a boolean if its present
 //Don't need to populate the hashMap before, lets just store the value as we check it
 
-package leetcode
+package twoSum_hashTable
 
 func TwoSum(nums []int, target int) []int {
 	hashTable := make(map[int]int)

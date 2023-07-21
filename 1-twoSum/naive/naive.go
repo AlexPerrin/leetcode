@@ -2,7 +2,7 @@
 //Naive Approuch using nested loops
 //O(n^2) time complexity
 
-package leetcode
+package twoSum_naive
 
 func TwoSum(nums []int, target int) []int {
 	for i := 0; i < len(nums); i++ {

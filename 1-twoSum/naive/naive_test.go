@@ -1,28 +1,56 @@
-package leetcode
+//LeetCode 1. Two Sum
+//Naive Approuch using nested loops
+//O(n^2) time complexity
+
+package twoSum_naive
 
 import (
-	"fmt"
 	"reflect"
 	"testing"
 )
 
-type TwoSumTest struct {
-	nums     []int
-	target   int
-	expected []int
-}
-
-var TwoSumTests = []TwoSumTest{
-	TwoSumTest{[]int{2, 7, 11, 15}, 9, []int{0, 1}},
-	TwoSumTest{[]int{3, 2, 4}, 6, []int{1, 2}},
-	TwoSumTest{[]int{3, 3}, 6, []int{0, 1}},
-}
-
 func TestTwoSum(t *testing.T) {
-	for _, test := range TwoSumTests {
-		fmt.Println("Output", TwoSum(test.nums, test.target), "expected", test.expected)
-		if !reflect.DeepEqual(TwoSum(test.nums, test.target), test.expected) { //if not equal
-			t.Errorf("Output %q not equal to expected %q", TwoSum(test.nums, test.target), test.expected)
-		}
+	type args struct {
+		nums   []int
+		target int
+	}
+	tests := []struct {
+		name string
+		args args
+		want []int
+	}{
+		{
+			name: "Example 1",
+			args: args{
+				nums:   []int{2, 7, 11, 15},
+				target: 9,
+			},
+			want: []int{0, 1},
+		},
+		{
+			name: "Example 2",
+			args: args{
+				nums:   []int{3, 2, 4},
+				target: 6,
+			},
+			want: []int{1, 2},
+		},
+		{
+			name: "Example 3",
+			args: args{
+				nums:   []int{3, 3},
+				target: 6,
+			},
+			want: []int{0, 1},
+		},
+	}
+	for _, tt := range tests {
+		tt := tt
+		t.Run(tt.name, func(t *testing.T) {
+			t.Parallel()
+			if got := TwoSum(tt.args.nums, tt.args.target); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("TwoSum() = %v, want %v", got, tt.want)
+			}
+		})
 	}
 }
