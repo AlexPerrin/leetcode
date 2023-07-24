@@ -45,10 +45,9 @@ func Test_addTwoNumbers(t *testing.T) {
 		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
-			want := tt.want
-			for got := addTwoNumbers(tt.args.l1, tt.args.l2); got != nil && want != nil; got, want = got.Next, want.Next {
-				if got.Val != want.Val {
-					t.Errorf("addTwoNumbers() = %v, want %v", got.Val, want.Val)
+			for got := addTwoNumbers(tt.args.l1, tt.args.l2); got != nil && tt.want != nil; got, tt.want = got.Next, tt.want.Next {
+				if got.Val != tt.want.Val {
+					t.Errorf("addTwoNumbers() = %v, want %v", got.Val, tt.want.Val)
 				}
 			}
 		})
