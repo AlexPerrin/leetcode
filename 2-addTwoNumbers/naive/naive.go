@@ -20,7 +20,7 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 		if l3Curr.Val >= 10 {
 			l3Curr.Val = l3Curr.Val % 10
 			l3Curr.Next = &ListNode{Val: 1}
-		} else {
+		} else if l1 != nil || l2 != nil {
 			l3Curr.Next = &ListNode{}
 		}
 		l3Curr = l3Curr.Next
